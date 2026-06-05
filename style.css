@@ -131,3 +131,28 @@ nav h4 {
 }
 
 
+.section4 {
+    padding: 100px 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.section4 h1 {
+    font-size: 120px;
+    text-align: center;
+    flex-shrink: 0;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.541);
+}
+
+.ss {
+    font-size: 150%;
+}
+
+.dope {
+    color: #CB450C;
+    ;
+}
+
+
