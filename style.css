@@ -155,4 +155,33 @@ nav h4 {
     ;
 }
 
+.one {
+    width: 3%;
+}
+
+
+.about {
+    text-align: center;
+}
+
+.about h1 {
+    line-height: 1.8;
+    font-size: 50px;
+}
+
+.hi {
+    color: #FE7D84;
+
+}
+
+.about img {
+    width: 360px;
+}
+
+.about img:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+
 
