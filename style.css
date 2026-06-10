@@ -184,4 +184,59 @@ nav h4 {
 }
 
 
+.section5 {
+    padding: 70px 50px;
+    background-color: #222222;
+    margin-top: 90px;
+}
+
+.section5 h1 {
+    font-size: 60px;
+}
+
+.section5 img {
+    width: 80px;
+    background-color: #fff;
+    padding: 6px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.img {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+
+}
+
+.blue {
+    color: #38CDFA;
+}
+
+.section5 h2 {
+    border-radius: 10px;
+    border: 2px solid white;
+    width: fit-content;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+.img11 img {
+    background-color: #fff;
+    padding: 6px;
+    border-radius: 10px;
+    margin-top: 20px;
+    width: 130px;
+}
+
+.img111 img {
+    background-color: #fff;
+    padding: 6px;
+    border-radius: 10px;
+    margin-top: 20px;
+    width: 75px;
+}
+
+
+
 
