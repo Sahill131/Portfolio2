@@ -10,7 +10,7 @@ gs.from("nav", {
 let tl = gsap.timeline({
   scrollTrigger: {
     trigger: "h1",
-    start: "top 25%",
+    start: "top 20%",
     scrub: 2,
 
 
