@@ -330,7 +330,11 @@ a{
 .about img:hover{
     cursor: pointer;
     opacity: 0.7;
+    
+
 }
+
+
 
 .footer{
     padding: 70px 45px;
