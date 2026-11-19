@@ -124,3 +124,26 @@ gsap.to(".xyz", {
 
   }
 })
+
+
+gsap.from("footer h1",{
+  y:70,
+  rotate:-60,
+  ease: "power3.out",
+  duration:1.5,
+  opacity:0,
+
+   scrollTrigger: {
+    trigger: ".footer h1",
+    start: "top 60%",
+    
+   
+    
+
+
+
+
+
+  }
+
+})
