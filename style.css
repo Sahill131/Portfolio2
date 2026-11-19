@@ -16,6 +16,89 @@ body {
     color: white;
 }
 
+.site-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: grid;
+    place-items: center;
+    background: #111;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.6s ease, visibility 0s linear 0.6s;
+}
+
+.site-loader.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    width: min(560px, calc(100% - 48px));
+    animation: loader-enter 0.8s ease both;
+}
+
+.loader-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    color: rgba(255, 255, 255, 0.541);
+    font-size: 13px;
+}
+
+.loader-wordmark {
+    margin: 36px 0 42px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: clamp(88px, 20vw, 160px);
+    line-height: 1;
+    letter-spacing: -0.07em;
+}
+
+.loader-wordmark span {
+    color: #FC626A;
+}
+
+.loader-track {
+    height: 2px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.loader-progress {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: #FC626A;
+    transition: width 0.12s ease-out;
+}
+
+.loader-caption {
+    margin-top: 16px;
+}
+
+@keyframes loader-enter {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-loader,
+    .loader-progress {
+        transition-duration: 0.01ms;
+    }
+
+    .loader-content {
+        animation: none;
+    }
+}
+
 .flex {
     display: flex;
 }

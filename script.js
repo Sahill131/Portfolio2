@@ -1,3 +1,42 @@
+const siteLoader = document.querySelector(".site-loader");
+
+if (siteLoader) {
+  const loaderProgress = siteLoader.querySelector(".loader-progress");
+  const loaderPercent = siteLoader.querySelector(".loader-percent");
+  const loaderStartedAt = Date.now();
+  let progressValue = 0;
+
+  const updateLoaderProgress = () => {
+    loaderProgress.style.width = `${progressValue}%`;
+    loaderPercent.textContent = `${String(progressValue).padStart(2, "0")}%`;
+  };
+
+  const progressTimer = window.setInterval(() => {
+    progressValue = Math.min(progressValue + (progressValue < 70 ? 2 : 1), 92);
+    updateLoaderProgress();
+  }, 55);
+
+  let loaderFinished = false;
+  const finishLoader = () => {
+    if (loaderFinished) return;
+    loaderFinished = true;
+    const remainingDisplayTime = Math.max(0, 2600 - (Date.now() - loaderStartedAt));
+
+    window.setTimeout(() => {
+      window.clearInterval(progressTimer);
+      progressValue = 100;
+      updateLoaderProgress();
+      window.setTimeout(() => siteLoader.classList.add("is-hidden"), 650);
+    }, remainingDisplayTime);
+  };
+
+  window.addEventListener("load", finishLoader, { once: true });
+
+  if (document.readyState === "complete") {
+    finishLoader();
+  }
+}
+
 let gs = gsap.timeline()
 
 gs.from("nav", {
