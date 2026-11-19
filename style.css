@@ -20,6 +20,25 @@ body {
     display: flex;
 }
 
+.gsap {
+    height: 30px;
+    width: 30px;
+    border: 2px solid #FC626A;
+    background-color:#FC626A;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 4px;
+    color: white;
+    pointer-events: none;
+
+
+}
+
 nav {
     display: flex;
     justify-content: space-between;
