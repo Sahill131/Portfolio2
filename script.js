@@ -443,3 +443,52 @@ document.querySelectorAll(".pro6").forEach(function(el){
   })
 
 })
+
+
+
+
+
+
+const projectTrack = document.querySelector(".f-gap");
+const fullstackSection = document.querySelector(".fullstack");
+
+if (projectTrack && fullstackSection) {
+  let trackPosition = 0;
+
+  const getTrackLimit = () => {
+    const visibleWidth = fullstackSection.clientWidth;
+    return Math.max(0, projectTrack.scrollWidth - visibleWidth);
+  };
+
+  window.addEventListener("wheel", (event) => {
+    const sectionBounds = fullstackSection.getBoundingClientRect();
+    const isVisible =
+      sectionBounds.bottom > 0 &&
+      sectionBounds.top < window.innerHeight;
+
+    if (!isVisible) return;
+
+    const wheelAmount = event.deltaY || event.deltaX;
+    if (!wheelAmount) return;
+
+    const trackLimit = getTrackLimit();
+    if (trackLimit === 0) return;
+
+    trackPosition = Math.max(
+      -trackLimit,
+      Math.min(0, trackPosition - wheelAmount * 0.65)
+    );
+
+    gsap.to(projectTrack, {
+      x: trackPosition,
+      duration: 0.45,
+      ease: "power3.out",
+      overwrite: true
+    });
+  }, { passive: true });
+
+  window.addEventListener("resize", () => {
+    trackPosition = Math.max(-getTrackLimit(), Math.min(0, trackPosition));
+    gsap.set(projectTrack, { x: trackPosition });
+  });
+}

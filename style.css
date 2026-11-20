@@ -314,6 +314,15 @@ hr{
     margin-top: 50px;
 }
 
+.italic{
+    font-style: italic;
+}
+
+.fullstack{
+    margin-top: 90px;
+    width: 100%;
+    overflow: hidden;
+}
 
 .section3{
     padding: 50px 50px;
@@ -470,6 +479,7 @@ a{
 .footer{
     padding: 100px 45px;
     margin-left: 7%;
+    margin-top: 50px;
 
 }
 
@@ -515,4 +525,28 @@ a{
 
     display: flex;
     gap:20px
+}
+
+
+.f-1{
+    margin-top: 40px;
+}
+
+.f-1 img{
+    width: 500px;
+    border-radius: 20px ;
+}
+
+.f-gap{
+    width: max-content;
+    gap:50px;
+    margin-top: 150px;
+}
+
+.f-1 p{
+    text-align: center;
+}
+
+.p-d{
+    margin-top: 200px;
 }
