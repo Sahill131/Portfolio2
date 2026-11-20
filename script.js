@@ -1,5 +1,22 @@
 const siteLoader = document.querySelector(".site-loader");
 
+const playIntroAnimations = () => {
+  const intro = gsap.timeline();
+
+  intro.from("nav", {
+    y: -60,
+    opacity: 0,
+    ease: "power3.out",
+    duration: 1
+  }).from(".section1", {
+    y: 120,
+    opacity: 0,
+    ease: "power3.out",
+    duration: 1.5
+  });
+};
+
+
 if (siteLoader) {
   const loaderProgress = siteLoader.querySelector(".loader-progress");
   const loaderPercent = siteLoader.querySelector(".loader-percent");
@@ -26,7 +43,16 @@ if (siteLoader) {
       window.clearInterval(progressTimer);
       progressValue = 100;
       updateLoaderProgress();
-      window.setTimeout(() => siteLoader.classList.add("is-hidden"), 650);
+      window.setTimeout(() => {
+        const onLoaderFade = (event) => {
+          if (event.target !== siteLoader || event.propertyName !== "opacity") return;
+          siteLoader.removeEventListener("transitionend", onLoaderFade);
+          playIntroAnimations();
+        };
+
+        siteLoader.addEventListener("transitionend", onLoaderFade);
+        siteLoader.classList.add("is-hidden");
+      }, 650);
     }, remainingDisplayTime);
   };
 
@@ -35,6 +61,8 @@ if (siteLoader) {
   if (document.readyState === "complete") {
     finishLoader();
   }
+} else {
+  playIntroAnimations();
 }
 
 if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -44,15 +72,6 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   gsap.ticker.add((time) => lenis.raf(time * 1000));
   gsap.ticker.lagSmoothing(0);
 }
-
-let gs = gsap.timeline()
-
-gs.from("nav", {
-  y: -60,
-  opacity: 0,
-  ease: "power3.out",
-  duration: 1
-})
 
 let tl = gsap.timeline({
   scrollTrigger: {
@@ -82,14 +101,6 @@ tl.to(".middle", {
     ease: "power3.out"
 
   }, "<");
-
-gs.from(".section1", {
-  y: 120,
-  opacity: 0,
-  ease: "power3.out",
-  duration: 1.5
-
-})
 
 gsap.from(".section4 h1", {
   y: 70,
